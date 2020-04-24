@@ -1,6 +1,6 @@
 export class Film {
 
-    filmId: string;
+    filmId: number;
     name: string;
     publishingYear: number;
     imagePath: string;

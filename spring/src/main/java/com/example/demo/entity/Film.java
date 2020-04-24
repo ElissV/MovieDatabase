@@ -13,10 +13,7 @@ public class Film {
     private int filmId;
 
     private String name;
-
     private int publishingYear;
-
     private String imagePath;
-
 
 }
