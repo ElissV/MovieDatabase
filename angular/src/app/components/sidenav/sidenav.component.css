@@ -1,0 +1,35 @@
+
+/*mat-sidenav {
+}
+
+mat-sidenav, mat-sidenav-content {
+    padding: 16px;
+}
+
+mat-sidenav-container {
+    height: 100%;
+    width: 200px;
+}
+
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.mat-button {
+    margin-left: 30px;
+}*/
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer { 
+    background-color: #023075;
+    color:#fff
+}
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
