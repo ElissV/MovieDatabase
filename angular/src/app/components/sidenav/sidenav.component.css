@@ -15,21 +15,39 @@ mat-sidenav-container {
 .spacer {
     flex: 1 1 auto;
 }
+*/
 
-.mat-button {
-    margin-left: 30px;
-}*/
-mat-sidenav {
-    width: 280px;
-    padding:15px;
+
+
+.sidenav {
+    width: 200px;
+    height:100%;
 }
-.mat-drawer { 
-    background-color: #023075;
-    color:#fff
+
+
+
+.tp-container {
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+ }
+
+ .tp-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 50px;
+    width: 170px;  
+ }
+.sidenav-content {
+    margin-left: 10%; 
 }
-.main-content {
-    padding:20px;
+.tp-section-container {
+    padding-top: 1%;
 }
-.toolbar-spacer {
-    flex: 1 1 auto;
+mat-sidenav-content {
+    color: #000000;
 }

@@ -1,0 +1,17 @@
+
+.mat-button {
+    margin-left: 30px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-icon-button {
+    margin-right: 10px;
+}
+
+.movie-icon {
+    color: #69F0AE;
+    margin-right: 2px;
+}
