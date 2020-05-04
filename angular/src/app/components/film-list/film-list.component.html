@@ -1,10 +1,25 @@
 
+
+<!--
 <ul>
 
     <li *ngFor="let film of films">
-        1
         {{ film.name }}
         {{ film.publishingYear }}
     </li>
 
-</ul>
+</ul> -->
+
+<mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let film of films">
+
+        <div>
+            <img src="assets/images/{{ film.imagePath }}">
+            <h3 class="title">
+                {{ film.name }}
+                ({{ film.publishingYear }})
+            </h3>
+        </div>
+
+    </mat-grid-tile>
+</mat-grid-list>

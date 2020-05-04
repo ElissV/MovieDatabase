@@ -12,6 +12,18 @@
 }
 
 .movie-icon {
-    color: #69F0AE;
+    color: #00adb5;
     margin-right: 2px;
+}
+
+mat-toolbar {
+    border-bottom: 1px solid #ffffff;
+}
+
+.mat-blue {
+    background-color: #00adb5;
+}
+
+.mat-dark-blue {
+    background-color: #222831;
 }

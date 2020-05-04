@@ -27,7 +27,7 @@ mat-sidenav-container {
 
 
 .tp-container {
-    height: 100%;
+    height: 200%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -40,14 +40,20 @@ mat-sidenav-container {
     align-content: center;
     align-items: center;
     height: 50px;
-    width: 170px;  
+    width: 196px;  
  }
 .sidenav-content {
     margin-left: 10%; 
 }
 .tp-section-container {
     padding-top: 1%;
+    border-right: 1px solid #ffffff;
 }
-mat-sidenav-content {
-    color: #000000;
+
+.mat-sidenav {
+    background-color: #393e46;
+}
+
+.mat-sidenav-container {
+    background-color: #eeeeee;
 }
