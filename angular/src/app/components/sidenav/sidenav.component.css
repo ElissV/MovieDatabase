@@ -1,33 +1,10 @@
 
-/*mat-sidenav {
-}
-
-mat-sidenav, mat-sidenav-content {
-    padding: 16px;
-}
-
-mat-sidenav-container {
-    height: 100%;
-    width: 200px;
-}
-
-
-.spacer {
-    flex: 1 1 auto;
-}
-*/
-
-
-
 .sidenav {
     width: 200px;
     height:100%;
 }
 
-
-
 .tp-container {
-    height: 200%;
     top: 0;
     bottom: 0;
     left: 0;
@@ -42,9 +19,11 @@ mat-sidenav-container {
     height: 50px;
     width: 196px;  
  }
+ 
 .sidenav-content {
     margin-left: 10%; 
 }
+
 .tp-section-container {
     padding-top: 1%;
     border-right: 1px solid #ffffff;
