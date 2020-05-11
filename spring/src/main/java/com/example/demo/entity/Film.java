@@ -10,7 +10,7 @@ public class Film {
 
     @Id
     @GeneratedValue
-    private int filmId;
+    private Long filmId;
 
     private String name;
     private int publishingYear;

@@ -10,6 +10,7 @@
     left: 0;
     right: 0;
     background: #ffffff;
+    min-height: 100%;
  }
 
  .tp-section {

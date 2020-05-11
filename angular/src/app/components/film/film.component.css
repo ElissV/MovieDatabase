@@ -1,0 +1,33 @@
+img {
+    max-height: 500px;
+    margin-left: 100px;
+}
+
+.main-div {
+    margin-top: 50px;
+}
+
+.main-div {
+  width: 100%;
+}
+
+.description {
+    color: black;
+    margin-left: 50px;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 26pt;
+}
+
+.title {
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 40pt;
+}
+
+.details {
+    font-size: 20pt;
+    margin-top: 30px;
+}
