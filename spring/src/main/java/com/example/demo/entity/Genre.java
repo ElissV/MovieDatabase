@@ -2,18 +2,26 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
-class Genre {
+public class Genre {
 
     @Id
-    @GeneratedValue
+    /*@EmbeddedId
+    @GeneratedValue*/
     private Long genreId;
 
     private String name;
+
+    /*@OneToMany(mappedBy = "genres")
+    @JoinTable(
+            name = "film_genres",
+            joinColumns = @JoinColumn(name = "genre_id"),
+            inverseJoinColumns = @JoinColumn(name = "film_id"))
+    Set<FilmGenres> films = new HashSet<>();*/
 
 }

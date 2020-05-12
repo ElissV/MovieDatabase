@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmService } from 'src/app/services/film.service';
-import { Film } from 'src/app/classes/film';
-import { Observable } from 'rxjs';
+import { Film } from 'src/app/classes/film/film';
 
 @Component({
   selector: 'app-film-list',
@@ -21,6 +20,5 @@ export class FilmListComponent implements OnInit {
       }
     );
   }
-
 
 }

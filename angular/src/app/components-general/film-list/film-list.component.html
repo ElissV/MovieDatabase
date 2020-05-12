@@ -1,6 +1,8 @@
 
 
+
 <mat-grid-list cols="3" rowHeight="1:1">
+
     <mat-grid-tile *ngFor="let film of films">
 
         <div>
@@ -14,4 +16,9 @@
         </div>
 
     </mat-grid-tile>
+
+    <div *ngIf="films?.length == 0" class="alert alert-warning" style="width: 100%;">
+        Sorry, an error ocurred. No Films found.
+    </div>
+
 </mat-grid-list>
