@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registration',
@@ -10,7 +11,8 @@ export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private httpClient: HttpClient) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -18,14 +20,25 @@ export class RegistrationComponent implements OnInit {
 
   initializeForm() {
     this.registerForm = this.formBuilder.group({
-        name: [''],
-        email: [''],
-        password: ['']
+        name: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email] ],
+        password: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
   submitData() {
-    console.log("WORKS!");
+    if (this.registerForm.valid) {
+      this.send();
+      console.log("Form Submitted!");
+      this.registerForm.reset();
+    } else {
+      console.log("Form not submitted");
+    }
+  }
+
+  send() {
+    let url = "http://localhost:8080/api/";
+    this.httpClient.post(url, this.registerForm);
   }
 
 }

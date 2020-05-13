@@ -10,25 +10,53 @@
             Username:
         </div>
         <div class="username grid-item">
-            <input type="text" required>
+            <input type="text" formControlName="name" required>
+        </div>
+
+        <div>
+            <div *ngIf="registerForm.controls['name'].invalid 
+                && registerForm.controls['name'].touched" 
+                class="alert alert-danger">
+                    Username is not valid
+            </div>
         </div>
 
         <div class="grid-item">
             Email:
         </div>
         <div class="email grid-item">
-            <input type="text" required>
+            <input type="email" formControlName="email" required>
         </div>
+
+        <div>
+            <div *ngIf="registerForm.controls['email'].invalid 
+                && registerForm.controls['email'].touched" 
+                class="alert alert-danger">
+                    Email is not valid
+            </div>
+        </div>
+
 
         <div class="grid-item">
             Password:
         </div>
         <div class="password grid-item">
-            <input type="text" required>
+            <input type="text" formControlName="password" required minlength="10">
+        </div>
+        <div>
+            <!--<div *ngIf="registerForm.controls['password'].errors.minlength
+                && registerForm.controls['password'].touched" 
+                class="alert alert-danger">
+                    Password minimum length is 10
+            </div> -->
+            <div #second *ngIf="registerForm.controls['password'].invalid 
+                && registerForm.controls['password'].touched" 
+                class="alert alert-danger">
+                    Password is not valid
+            </div>
         </div>
 
         <button type="submit">Register</button>
-
     </div>
 
 </form>

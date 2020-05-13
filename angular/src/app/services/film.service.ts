@@ -10,8 +10,6 @@ import { Observable } from 'rxjs';
 export class FilmService {
 
   baseUrl = 'http://localhost:8080/api/films/';
-  films: Film[] = [];
-  film: Film;
 
   constructor(private http: HttpClient) { }
 
@@ -29,5 +27,7 @@ export class FilmService {
 }
 
 export class FilmsWrapper {
-  _embedded: { films: Film[] };
+  _embedded: { 
+    films: Film[] 
+  };
 }

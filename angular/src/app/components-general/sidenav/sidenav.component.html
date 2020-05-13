@@ -8,8 +8,8 @@
             <span class="sidenav-content">Top 50 films</span>
          </section>
 
-         <section class = "tp-section">
-            <span class="sidenav-content">Search</span>
+         <section *ngFor="let genre of genres" class = "tp-section">
+            <span class="sidenav-content">{{ genre.name }}</span>
          </section>
       </mat-sidenav>
 
