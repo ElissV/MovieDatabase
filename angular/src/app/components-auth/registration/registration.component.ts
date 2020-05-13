@@ -37,7 +37,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   send() {
-    let url = "http://localhost:8080/api/";
+    let url = "http://localhost:8080/api/register";
     this.httpClient.post(url, this.registerForm);
   }
 
