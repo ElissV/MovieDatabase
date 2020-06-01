@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Film } from 'src/app/classes/film/film';
 import { FilmService } from 'src/app/services/film.service';
+import { GenreService } from 'src/app/services/genre.service';
 
 @Component({
   selector: 'app-film',
@@ -11,10 +12,11 @@ import { FilmService } from 'src/app/services/film.service';
 export class FilmComponent implements OnInit {
 
   filmId: number;
-  currentFilm: Film;
+  currentFilm: Film = new Film();
     
   constructor(private route: ActivatedRoute,
-              private filmService: FilmService) { 
+              private filmService: FilmService,
+              private genreService: GenreService) { 
   }
 
   ngOnInit(): void {
@@ -34,6 +36,15 @@ export class FilmComponent implements OnInit {
     this.filmService.getFilm(this.filmId).subscribe(
       data => {
         this.currentFilm = data;
+      }
+    );
+    this.getFilmGenres();
+  }
+
+  getFilmGenres() {
+    this.genreService.getCurrentFilmGenres(this.filmId).subscribe(
+      data => {
+        this.currentFilm.genres = data;
       }
     );
   }

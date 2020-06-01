@@ -9,19 +9,20 @@ import java.util.Set;
 @Data
 @Entity
 public class Genre {
-
     @Id
-    /*@EmbeddedId
-    @GeneratedValue*/
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "genre_id")
     private Long genreId;
 
     private String name;
 
-    /*@OneToMany(mappedBy = "genres")
-    @JoinTable(
-            name = "film_genres",
-            joinColumns = @JoinColumn(name = "genre_id"),
-            inverseJoinColumns = @JoinColumn(name = "film_id"))
-    Set<FilmGenres> films = new HashSet<>();*/
+    @ManyToMany(mappedBy = "genres")
+    private Set<Film> films = new HashSet<>();
 
+    public Genre(String name) {
+        this.name = name;
+    }
+
+    public Genre() {
+    }
 }

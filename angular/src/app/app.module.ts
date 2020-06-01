@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './components-auth/registration/registration.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components-auth/login/login.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FilmComponent,
     NavbarComponent,
     SidenavComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

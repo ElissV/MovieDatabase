@@ -1,29 +1,46 @@
 package com.example.demo.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 @Data
+@EqualsAndHashCode(exclude = "genres")
 @Entity
 public class Film {
-
     @Id
-    //@EmbeddedId
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "film_id")
     private Long filmId;
 
+    @Column(name = "name")
     private String name;
-    private int publishingYear;
+
+    @Column(name = "publishing_year")
+    private Integer publishingYear;
+
+    @Column(name = "image_path")
     private String imagePath;
 
-    /*@OneToMany//(mappedBy = "film")
-    @JoinTable(
-            name = "film_genres",
-            joinColumns = @JoinColumn(name = "film_id"),
-            inverseJoinColumns = @JoinColumn(name = "genre_id"))
-    Set<FilmGenres> genres = new HashSet<>();*/
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "film_genres",
+            joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "genre_id"))
+    private Set<Genre> genres = new HashSet<>();
+
+    public Film() {
+    }
+
+    public Film(String name, Genre genres) {
+        this.name = name;
+        this.genres = Stream.of(genres).collect(Collectors.toSet());
+        this.genres.forEach(x -> x.getFilms().add(this));
+    }
 
 }

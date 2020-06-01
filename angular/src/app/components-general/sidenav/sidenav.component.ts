@@ -25,17 +25,6 @@ export class SidenavComponent implements OnInit {
         this.genres = data;
       }
     );
-
-    let str = of(3);
-    str
-    .pipe(
-      map(
-        name => name * 2
-      )
-    )
-    .subscribe(
-      data => console.log(data)
-    );
   }
 
 }

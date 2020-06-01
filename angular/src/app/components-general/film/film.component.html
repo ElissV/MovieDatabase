@@ -12,7 +12,11 @@
       </div>
       
       <div class="details">
-        {{ currentFilm.publishingYear }}
+        {{ currentFilm.publishingYear }}, {{currentFilm.imagePath}}
+      </div>
+
+      <div *ngFor="let genre of currentFilm.genres">
+        {{ genre.name }}
       </div>
 
     </div>

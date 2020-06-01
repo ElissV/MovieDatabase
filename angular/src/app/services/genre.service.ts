@@ -13,6 +13,15 @@ export class GenreService {
 
   getAllGenres(): Observable<Genre[]> {
     let url = "http://localhost:8080/api/genres/";
+    return this.getFilmList(url);
+  }
+
+  getCurrentFilmGenres(filmId: number): Observable<Genre[]> {
+    let url = "http://localhost:8080/api/films/" + filmId + "/genres";
+    return this.getFilmList(url);
+  }
+
+  getFilmList(url: string) {
     return this.httpClient.get<GenreWrapper>(url).pipe(
       map(data => data._embedded.genres)
     );
