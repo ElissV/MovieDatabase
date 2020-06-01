@@ -13,6 +13,8 @@ export class FilmComponent implements OnInit {
 
   filmId: number;
   currentFilm: Film = new Film();
+
+  dataLoaded: Promise<boolean>;
     
   constructor(private route: ActivatedRoute,
               private filmService: FilmService,
@@ -47,6 +49,7 @@ export class FilmComponent implements OnInit {
         this.currentFilm.genres = data;
       }
     );
+    this.dataLoaded = Promise.resolve(true);
   }
 
 }

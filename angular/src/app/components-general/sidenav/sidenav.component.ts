@@ -25,6 +25,7 @@ export class SidenavComponent implements OnInit {
         this.genres = data;
       }
     );
+    console.log(this.genres[0].genreId);
   }
 
 }

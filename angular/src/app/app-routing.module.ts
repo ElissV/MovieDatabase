@@ -8,6 +8,7 @@ import { RegistrationComponent } from './components-auth/registration/registrati
 const routes: Routes = [
   {path: 'films', component: FilmListComponent},
   {path: 'films/:id', component: FilmComponent},
+  {path: 'genres/:id/films', component: FilmListComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: '', redirectTo: '/films', pathMatch: 'full'}
 ];

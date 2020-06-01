@@ -9,7 +9,11 @@
          </section>
 
          <section *ngFor="let genre of genres" class = "tp-section">
-            <span class="sidenav-content">{{ genre.name }}</span>
+            <span class="sidenav-content">
+               <a href="/genres/{{genre.genreId}}/films">
+                  {{ genre.name }}
+               </a>
+            </span>
          </section>
       </mat-sidenav>
 

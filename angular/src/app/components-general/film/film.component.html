@@ -1,7 +1,7 @@
 
 
 
-<div class="main-div">  
+<div class="main-div" *ngIf="dataLoaded | async">
 
     <img src="assets/images/{{ currentFilm.imagePath }}">
 
