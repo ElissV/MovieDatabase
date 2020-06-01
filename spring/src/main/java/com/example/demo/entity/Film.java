@@ -25,6 +25,9 @@ public class Film {
     @Column(name = "publishing_year")
     private Integer publishingYear;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "image_path")
     private String imagePath;
 

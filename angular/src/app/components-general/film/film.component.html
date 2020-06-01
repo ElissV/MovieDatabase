@@ -5,18 +5,20 @@
 
     <img src="assets/images/{{ currentFilm.imagePath }}">
 
-    <div class="description">
+    <div class="film-details">
 
       <div class="title">
         {{ currentFilm.name }} ({{ currentFilm.publishingYear }})
       </div>
-      
-      <div class="details">
-        {{ currentFilm.publishingYear }}, {{currentFilm.imagePath}}
+
+      <div class="genre-container">
+        <div class="genre" *ngFor="let genre of currentFilm.genres; let isLast=last">
+          {{ genre.name }}
+        </div>
       </div>
 
-      <div *ngFor="let genre of currentFilm.genres">
-        {{ genre.name }}
+      <div class="description">
+        {{ currentFilm.description }}
       </div>
 
     </div>

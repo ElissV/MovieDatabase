@@ -12,7 +12,7 @@ img {
   width: 100%;
 }
 
-.description {
+.film-details {
     color: black;
     margin-left: 50px;
     margin-top: 20px;
@@ -28,7 +28,28 @@ img {
     font-size: 40pt;
 }
 
-.details {
+.year {
     font-size: 20pt;
     margin-top: 30px;
+}
+
+.genre {
+    display: inline-block;
+    margin-right: 20px;
+    height: 25px;
+    width: 75px;
+    text-align: center;
+    line-height: 25px; 
+    background-color: cadetblue;
+    border-radius: 5px;
+}
+
+.genre-container {
+    margin-top: 30px;
+    max-width: 350px;
+}
+
+.description {
+    max-width: 350px;
+    margin-top: 20px;
 }
