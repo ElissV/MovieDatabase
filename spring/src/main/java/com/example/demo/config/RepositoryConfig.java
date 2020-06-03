@@ -1,7 +1,7 @@
 package com.example.demo.config;
 
-import com.example.demo.entity.Film;
-import com.example.demo.entity.Genre;
+import com.example.demo.domain.Film;
+import com.example.demo.domain.Genre;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
