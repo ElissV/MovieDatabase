@@ -3,7 +3,7 @@
 
 <div class="main-div" *ngIf="dataLoaded | async">
 
-    <img src="assets/images/{{ currentFilm.imagePath }}">
+    <img class="film-picture" src="assets/images/{{ currentFilm.imagePath }}">
 
     <div class="film-details">
 
@@ -19,6 +19,72 @@
 
       <div class="description">
         {{ currentFilm.description }}
+      </div>
+
+    </div>
+
+    <div class="comments-div">
+        <hr style="margin-top: 50px;">
+        <h1>Comments (3)</h1>
+
+        <div class="negative-comment comment">
+          <div class="user-info">
+            
+            <img class="avatar" src="assets/images/it.jpg">
+  
+            <div class="comment-top-part">
+              <div class="username">
+                Anon
+              </div>
+              <div class="comment-date">
+                  5 weeks ago
+              </div>
+            </div>
+          </div>
+  
+          <div class="comment-text">
+            Awful!sssssssssssssssssssssssssssss sssssssssssssssssssssssss ssssssssssssssssssssssssssssssssssss
+          </div>
+        </div>
+
+      <div class="neutral-comment comment">
+        <div class="user-info">
+
+          <img class="avatar" src="assets/images/it.jpg">
+
+          <div class="comment-top-part">
+            <div class="username">
+              Anon
+            </div>
+            <div class="comment-date">
+                5 weeks ago
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-text">
+          Not bad, not good...
+        </div>
+      </div>
+
+      <div class="positive-comment comment">
+        <div class="user-info">
+          
+          <img class="avatar" src="assets/images/it.jpg">
+
+          <div class="comment-top-part">
+            <div class="username">
+              Anon
+            </div>
+            <div class="comment-date">
+                5 weeks ago
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-text">
+          Great film.
+        </div>
       </div>
 
     </div>

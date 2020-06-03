@@ -1,4 +1,4 @@
-img {
+.film-picture {
     max-height: 500px;
     margin-left: 100px;
     border: 1px solid #000000;
@@ -52,4 +52,70 @@ img {
 .description {
     max-width: 400px;
     margin-top: 20px;
+}
+
+h1 {
+    font-weight: 300;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+h1, .positive-comment, .negative-comment, .neutral-comment {
+    color: black;
+    margin-left: 100px;
+}
+
+.positive-comment {
+    background-color: #DFFFD9;
+}
+
+.negative-comment {
+    background-color: #FFD9D9;
+}
+
+.neutral-comment {
+    background-color: #F7F7F7;
+}
+
+.comment {
+    margin-bottom: 20px;
+    max-width: 700px;
+    border: 1px solid #CCCCCC;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: 10px;
+}
+
+.user-info {
+    text-align: left;
+}
+
+.comment-date {
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    font-size: 10pt;
+    color: #404040;
+}
+
+.comment-text {
+    margin-top: 30px;
+    margin-left: 110px;
+    padding-bottom: 50px;
+    border-radius: 20px 40px;
+    font-size: 12pt;
+}
+
+.username {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 12pt;
+}
+
+.comment-top-part {
+    padding-top: 20px;
 }

@@ -37,3 +37,9 @@
 .mat-sidenav-container {
     background-color: #eeeeee;
 }
+
+a {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 12pt;
+}

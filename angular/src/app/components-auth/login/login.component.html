@@ -1,1 +1,51 @@
-<p>login works!</p>
+
+
+<form [formGroup]="loginForm" >
+
+    <h1>Log in here:</h1>
+
+    <div class="grid-container">
+
+        <div class="grid-item">
+            Email:
+        </div>
+        <div class="email grid-item">
+            <input type="email" formControlName="email" required>
+        </div>
+
+        <div>
+            <!-- <div *ngIf="registerForm.controls['email'].invalid 
+                && registerForm.controls['email'].touched" 
+                class="alert alert-danger">
+                    Email is not valid
+            </div> -->
+        </div>
+
+
+        <div class="grid-item">
+            Password:
+        </div>
+        <div class="password grid-item">
+            <input type="text" formControlName="password" required minlength="10">
+        </div>
+        <div>
+            <!--<div *ngIf="registerForm.controls['password'].errors.minlength
+                && registerForm.controls['password'].touched" 
+                class="alert alert-danger">
+                    Password minimum length is 10
+            </div> -->
+            <!-- <div #second *ngIf="registerForm.controls['password'].invalid 
+                && registerForm.controls['password'].touched" 
+                class="alert alert-danger">
+                    Password is not valid
+            </div> -->
+        </div>
+
+    </div>
+    <div>
+        <button type="submit">Log in</button>
+        <a href="/registration">Forgot your password?</a>
+        <br>
+        <a href="/registration">Don't have an account?</a>
+    </div>
+</form>

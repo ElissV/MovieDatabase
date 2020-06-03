@@ -14,21 +14,15 @@ import java.util.stream.Stream;
 @EqualsAndHashCode(exclude = "genres")
 @Entity
 public class Film {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private Long filmId;
 
-    @Column(name = "name")
     private String name;
-
-    @Column(name = "publishing_year")
     private Integer publishingYear;
-
-    @Column(name = "description")
     private String description;
-
-    @Column(name = "image_path")
     private String imagePath;
 
     @ManyToMany(cascade = CascadeType.ALL)

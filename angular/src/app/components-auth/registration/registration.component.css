@@ -1,12 +1,11 @@
 
 h1 {
     color: black;
-    margin-top: 50px;
-    font-weight: bold;
+    font-weight: 200;
+    font-size: 30pt;
 }
 
 .grid-container, h1 {
-    margin-left: 90px;
 }
 
 .grid-container {
@@ -19,6 +18,8 @@ h1 {
 
 .grid-item {
     margin-bottom: 20px;
+    font-size: 14pt;
+    margin-right: 10px;
 }
 
 input.ng-touched.ng-invalid {
@@ -29,4 +30,27 @@ input.ng-touched.ng-invalid {
     height: 30px;
     line-height: 10px; 
     vertical-align: middle;
+}
+
+form {
+    margin-top: 60px;
+    margin-left: 110px;
+    width: 325px;
+}
+
+button {
+    height: 40px;
+    width: 325px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00adb5;
+    color: white;
+    font-size: 14pt;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
 }
