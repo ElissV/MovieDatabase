@@ -27,7 +27,7 @@
         <hr style="margin-top: 50px;">
         <h1>Comments (3)</h1>
 
-        <div class="negative-comment comment">
+        <div class="negative-comment comment" *ngFor="let review of filmReviews">
           <div class="user-info">
             
             <img class="avatar" src="assets/images/it.jpg">
@@ -43,11 +43,11 @@
           </div>
   
           <div class="comment-text">
-            Awful!sssssssssssssssssssssssssssss sssssssssssssssssssssssss ssssssssssssssssssssssssssssssssssss
+            {{ review.text }}
           </div>
         </div>
 
-      <div class="neutral-comment comment">
+      <!-- <div class="neutral-comment comment">
         <div class="user-info">
 
           <img class="avatar" src="assets/images/it.jpg">
@@ -85,7 +85,7 @@
         <div class="comment-text">
           Great film.
         </div>
-      </div>
+      </div> -->
 
     </div>
 

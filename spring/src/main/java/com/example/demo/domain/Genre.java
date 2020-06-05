@@ -9,9 +9,10 @@ import java.util.Set;
 @Data
 @Entity
 public class Genre {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "genre_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long genreId;
 
     private String name;
@@ -25,4 +26,5 @@ public class Genre {
 
     public Genre() {
     }
+
 }

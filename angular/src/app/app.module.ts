@@ -20,6 +20,7 @@ import { RegistrationComponent } from './components-auth/registration/registrati
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components-auth/login/login.component';
+import { UserProfileComponent } from './components-auth/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { LoginComponent } from './components-auth/login/login.component';
     NavbarComponent,
     SidenavComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

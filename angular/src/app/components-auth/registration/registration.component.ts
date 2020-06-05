@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/classes/user/user';
 
 @Component({
   selector: 'app-registration',
@@ -37,8 +38,14 @@ export class RegistrationComponent implements OnInit {
   }
 
   send() {
-    let url = "http://localhost:8080/api/register";
-    this.httpClient.post(url, this.registerForm);
+    let url = "http://localhost:8080/api/registration";
+    let user: User = {
+      userId: 0,
+      name: this.registerForm.controls['name'].value,
+      email: this.registerForm.controls['email'].value,
+      password: this.registerForm.controls['password'].value
+    };
+    this.httpClient.post(url, user);
   }
 
 }

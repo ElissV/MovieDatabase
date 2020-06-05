@@ -11,13 +11,13 @@ import java.util.stream.Stream;
 
 
 @Data
-@EqualsAndHashCode(exclude = "genres")
 @Entity
+@EqualsAndHashCode(exclude = "genres")
 public class Film {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long filmId;
 
     private String name;
@@ -30,6 +30,9 @@ public class Film {
             joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "genre_id"))
     private Set<Genre> genres = new HashSet<>();
+
+    @OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
+    private Set<Review> reviews = new HashSet<>();
 
     public Film() {
     }

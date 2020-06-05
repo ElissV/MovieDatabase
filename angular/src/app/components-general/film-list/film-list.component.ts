@@ -20,16 +20,16 @@ export class FilmListComponent implements OnInit {
     this.getFilms();
   }
 
+
   getFilms() {
     
     const hasGenreId: boolean = this.route.snapshot.paramMap.has('id');
-
     if (hasGenreId) {
       this.getFilmsByGenre();
     } else {
       this.getAllFilms();
     }
-    
+
   }
 
   getFilmsByGenre() {
