@@ -1,7 +1,7 @@
 
 
 
-<div class="main-div" *ngIf="dataLoaded | async">
+<div class="main-div">
 
     <img class="film-picture" src="assets/images/{{ currentFilm.imagePath }}">
 
@@ -25,9 +25,9 @@
 
     <div class="comments-div">
         <hr style="margin-top: 50px;">
-        <h1>Reviews (?)</h1>
+        <h1>Reviews ({{ currentFilm.filmReviews.length }})</h1>
 
-        <div class="negative-comment comment" *ngFor="let review of filmReviews" 
+        <div class="negative-comment comment" *ngFor="let review of currentFilm.filmReviews" 
         >
           <div class="user-info">
             
@@ -47,8 +47,8 @@
             {{ review.text }}
           </div>
         </div>
-        <div *ngIf="filmReviews?.length == 0 || filmReviews == null" class="no-data-message">
-          No reviews found.
+        <div *ngIf="currentFilm.filmReviews?.length == 0 || currentFilm.filmReviews == null" class="no-data-message">
+          No reviews yet.
         </div>
 
       <!-- <div class="neutral-comment comment">
