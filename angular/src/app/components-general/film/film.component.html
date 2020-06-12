@@ -25,16 +25,17 @@
 
     <div class="comments-div">
         <hr style="margin-top: 50px;">
-        <h1>Comments (3)</h1>
+        <h1>Reviews (?)</h1>
 
-        <div class="negative-comment comment" *ngFor="let review of filmReviews">
+        <div class="negative-comment comment" *ngFor="let review of filmReviews" 
+        >
           <div class="user-info">
             
             <img class="avatar" src="assets/images/it.jpg">
   
             <div class="comment-top-part">
               <div class="username">
-                Anon
+                Anon 
               </div>
               <div class="comment-date">
                   5 weeks ago
@@ -45,6 +46,9 @@
           <div class="comment-text">
             {{ review.text }}
           </div>
+        </div>
+        <div *ngIf="filmReviews?.length == 0 || filmReviews == null" class="no-data-message">
+          No reviews found.
         </div>
 
       <!-- <div class="neutral-comment comment">

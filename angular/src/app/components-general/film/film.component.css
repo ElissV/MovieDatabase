@@ -62,7 +62,6 @@ h1 {
 
 h1, .positive-comment, .negative-comment, .neutral-comment {
     color: black;
-    margin-left: 100px;
 }
 
 .positive-comment {
@@ -75,6 +74,11 @@ h1, .positive-comment, .negative-comment, .neutral-comment {
 
 .neutral-comment {
     background-color: #F7F7F7;
+}
+
+.comments-div {
+    margin-left: 100px;
+    margin-bottom: 50px;
 }
 
 .comment {
@@ -118,4 +122,9 @@ h1, .positive-comment, .negative-comment, .neutral-comment {
 
 .comment-top-part {
     padding-top: 20px;
+}
+
+.no-data-message {
+    color: black;
+
 }

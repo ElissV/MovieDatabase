@@ -4,7 +4,7 @@ import { ReviewType } from '../review-type/review-type';
 export class Review {
 
     reviewId: number;
-    //filmId: Film;
+    film: Film;
     reviewType: ReviewType;
     text: string;
 

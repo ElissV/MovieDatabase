@@ -1,10 +1,11 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,8 +18,10 @@ public class Genre {
 
     private String name;
 
-    @ManyToMany(mappedBy = "genres")
-    private Set<Film> films = new HashSet<>();
+    //@JsonIgnoreProperties("genres")
+    @ManyToMany(mappedBy = "genres", fetch = FetchType.EAGER)
+    private List<Film> films = new ArrayList<>();
+
 
     public Genre(String name) {
         this.name = name;

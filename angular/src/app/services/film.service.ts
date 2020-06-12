@@ -10,7 +10,6 @@ import { Observable } from 'rxjs';
 export class FilmService {
 
   baseUrl = 'http://localhost:8080/api/films/';
-  credentials = 'user:o#edGBiSfQLaBFU#Mn@j';
 
   constructor(private http: HttpClient) { }
 
@@ -21,8 +20,7 @@ export class FilmService {
 
   getFilm(id: number): Observable<Film> {
     const filmUrl = this.baseUrl + id;
-    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.credentials)});
-    return this.http.get<Film>(filmUrl, {headers});
+    return this.http.get<Film>(filmUrl);
   }
 
   getFilmsByGenre(id: number): Observable<Film[]> {
@@ -31,8 +29,7 @@ export class FilmService {
   }
 
   getFilms(url: string): Observable<Film[]> {
-    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.credentials)});
-    return this.http.get<FilmsWrapper>(url, {headers}).pipe(
+    return this.http.get<FilmsWrapper>(url).pipe(
       map(data => data._embedded.films)
     );
   }
