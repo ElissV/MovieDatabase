@@ -1,7 +1,7 @@
 
 
 
-<div class="main-div">
+<div class="main-div" *ngIf="currentFilm != null">
 
     <img class="film-picture" src="assets/images/{{ currentFilm.imagePath }}">
 
@@ -23,11 +23,16 @@
 
     </div>
 
+
     <div class="comments-div">
         <hr style="margin-top: 50px;">
         <h1>Reviews ({{ currentFilm.filmReviews.length }})</h1>
 
-        <div class="negative-comment comment" *ngFor="let review of currentFilm.filmReviews" 
+        <div class="comment" 
+          *ngFor="let review of currentFilm.filmReviews" 
+          [ngClass]="{'positive-comment': review.reviewType.name == 'positive',
+          'negative-comment': review.reviewType.name == 'negative',
+          'neutral-comment': review.reviewType.name == 'neutral'}"
         >
           <div class="user-info">
             
@@ -35,7 +40,7 @@
   
             <div class="comment-top-part">
               <div class="username">
-                Anon 
+                Anon
               </div>
               <div class="comment-date">
                   5 weeks ago
@@ -51,46 +56,10 @@
           No reviews yet.
         </div>
 
-      <!-- <div class="neutral-comment comment">
-        <div class="user-info">
-
-          <img class="avatar" src="assets/images/it.jpg">
-
-          <div class="comment-top-part">
-            <div class="username">
-              Anon
-            </div>
-            <div class="comment-date">
-                5 weeks ago
-            </div>
-          </div>
-        </div>
-
-        <div class="comment-text">
-          Not bad, not good...
-        </div>
-      </div>
-
-      <div class="positive-comment comment">
-        <div class="user-info">
-          
-          <img class="avatar" src="assets/images/it.jpg">
-
-          <div class="comment-top-part">
-            <div class="username">
-              Anon
-            </div>
-            <div class="comment-date">
-                5 weeks ago
-            </div>
-          </div>
-        </div>
-
-        <div class="comment-text">
-          Great film.
-        </div>
-      </div> -->
-
     </div>
 
+</div>
+
+<div class="alert alert-warning" *ngIf="currentFilm == null">
+  Film data not found.
 </div>

@@ -19,7 +19,7 @@ export class FilmService {
   }
 
   getFilm(id: number): Observable<Film> {
-    const filmUrl = this.baseUrl + id + "?projection=filmI";
+    const filmUrl = this.baseUrl + id + "?projection=filmProjection";
     return this.http.get<Film>(filmUrl);
   }
 

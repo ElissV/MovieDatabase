@@ -14,8 +14,7 @@ import { ReviewService } from 'src/app/services/review.service';
 export class FilmComponent implements OnInit {
 
   filmId: number;
-  currentFilm: Film = new Film();
-  filmReviews: Review[] = [];
+  currentFilm: Film;
   dataLoaded: Promise<boolean>;
     
   constructor(private route: ActivatedRoute,
@@ -44,22 +43,6 @@ export class FilmComponent implements OnInit {
         this.currentFilm = data;
       }
     );
-    /*this.getFilmGenres();
-    this.getFilmReviews();*/
-  }
-
-  getFilmGenres() {
-    this.genreService.getCurrentFilmGenres(this.filmId).subscribe(
-      data => {
-        this.currentFilm.genres = data;
-      }
-    );
-    this.dataLoaded = Promise.resolve(true);
-  }
-
-  getFilmReviews() {
-    //this.filmReviews = this.reviewService.getAllReviews();
-    this.filmReviews = this.reviewService.getAllReviews();
   }
 
 }

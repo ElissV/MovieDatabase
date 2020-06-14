@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 
 @Data
 @Entity
-//@EqualsAndHashCode(exclude = {"genres", "filmReviews"})
+@EqualsAndHashCode(exclude = {"genres", "filmReviews"})
 public class Film {
 
     @Id
@@ -37,11 +37,13 @@ public class Film {
     @JoinTable(name = "film_genres",
             joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "genre_id"))
-    private List<Genre> genres = new ArrayList<>();
+    private Set<Genre> genres = new HashSet<>();
 
 
-    @OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
-    private List<Review> filmReviews = new ArrayList<>();
+    @OneToMany(mappedBy = "film", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //@JoinColumn(name = "filmId")
+    @JsonIgnoreProperties("film")
+    private Set<Review> filmReviews = new HashSet<>();
 
 
     public Film() {
@@ -49,7 +51,7 @@ public class Film {
 
     public Film(String name, Genre genres) {
         this.name = name;
-        this.genres = Stream.of(genres).collect(Collectors.toList());
+        this.genres = Stream.of(genres).collect(Collectors.toSet());
         this.genres.forEach(x -> x.getFilms().add(this));
     }
 

@@ -1,10 +1,12 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Data
 @Table
@@ -20,11 +22,11 @@ public class Review {
     @JoinColumn(name = "filmId", nullable = false)
     private Film film;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "typeId", nullable = false)
     private ReviewType reviewType;
 
-    @Column
+    private Timestamp date;
     private String text;
 
 }

@@ -15,63 +15,6 @@ export class ReviewService {
 
   constructor(private httpClient: HttpClient) { }
 
-
-
-  getAllReviews(): Review[] {
-    const url = this.baseUrl + "films/1/filmReviews";
-
-    this.httpClient.get<ReviewWrapper>(url).pipe(
-      map(data => data._embedded.reviews))
-      .subscribe(data => {
-      this.filmReviews = data;
-    });
-    /*
-    this.getReviewsObservable().subscribe( 
-        data => this.filmReviews
-    )
-    data => {
-        this.currentFilm.genres = data;
-      }
-
-    */
-    console.log(this.filmReviews.length);
-    return this.setTypesForReviews(this.filmReviews);
-  }
-
-
-  /*getReviewsObservable(): Observable<Review[]> {
-
-    return this.httpClient.get<ReviewWrapper>(url).pipe( 
-      map( data => data._embedded.reviews) 
-    );
-  }*/
-
-
-  setTypesForReviews(reviewArray: Review[]): Review[] {
-    for (let i = 0; i < this.filmReviews.length; i++) {
-      let reivewId = reviewArray[i].reviewId;
-      this.getReviewType(reivewId).subscribe(
-        data => {
-          reviewArray[i].reviewType = data;
-        }
-      );
-    }
-    return this.filmReviews;
-  }
-
-
-  getAllReviewTypes(): Observable<ReviewType[]> {
-    const url = this.baseUrl + "reviewTypes";
-    return this.httpClient.get<ReviewTypesWrapper>(url).pipe(
-      map(data => data._embedded.reviewTypes)
-    );
-  }
-
-  getReviewType(reviewId: number): Observable<ReviewType> {
-    const url = this.baseUrl + "reviews/" + reviewId + "/reviewType";
-    return this.httpClient.get<ReviewType>(url);
-  }
-
 }
 
 export class ReviewWrapper {
