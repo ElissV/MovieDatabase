@@ -6,6 +6,7 @@ export class Review {
     reviewId: number;
     film: Film;
     reviewType: ReviewType;
+    date: Date;
     text: string;
 
 }

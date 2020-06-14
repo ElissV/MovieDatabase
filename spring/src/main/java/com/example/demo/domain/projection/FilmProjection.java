@@ -1,5 +1,8 @@
-package com.example.demo.domain;
+package com.example.demo.domain.projection;
 
+import com.example.demo.domain.Film;
+import com.example.demo.domain.Genre;
+import com.example.demo.domain.Review;
 import org.springframework.data.rest.core.config.Projection;
 
 import java.util.Set;

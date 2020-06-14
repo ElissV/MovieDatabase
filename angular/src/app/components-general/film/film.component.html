@@ -43,7 +43,7 @@
                 Anon
               </div>
               <div class="comment-date">
-                  5 weeks ago
+                {{ review.date | date:'dd.MM.yyyy':'+3' }}
               </div>
             </div>
           </div>

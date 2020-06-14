@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.domain.Review;
-import com.example.demo.domain.ReviewProjection;
+import com.example.demo.domain.projection.ReviewProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;

@@ -1,17 +1,17 @@
-package com.example.demo.domain;
+package com.example.demo.domain.projection;
 
+import com.example.demo.domain.Review;
+import com.example.demo.domain.ReviewType;
 import org.springframework.data.rest.core.config.Projection;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Projection(types = Review.class, name = "reviewProjection")
 public interface ReviewProjection {
 
     Long getReviewId();
     ReviewType getReviewType();
-    @DateTimeFormat(pattern = "ddMMyy")
-    Timestamp getDate();
+    Date getDate();
     String getText();
 
 }

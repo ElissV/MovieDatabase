@@ -1,12 +1,10 @@
 package com.example.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 @Table
@@ -26,7 +24,9 @@ public class Review {
     @JoinColumn(name = "typeId", nullable = false)
     private ReviewType reviewType;
 
-    private Timestamp date;
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
     private String text;
 
 }
