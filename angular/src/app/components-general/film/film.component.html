@@ -56,22 +56,50 @@
   
             <div class="comment-top-part">
               <div class="username">
-                Anon
+                Some user
               </div>
               <div class="comment-date">
                 {{ review.date | date:'dd.MM.yyyy':'+3' }}
               </div>
             </div>
           </div>
-  
           <div class="comment-text">
             {{ review.text }}
           </div>
         </div>
+
         <div class="no-data-message"
               *ngIf="currentFilm.filmReviews?.length == 0 || currentFilm.filmReviews == null">
           No reviews yet.
         </div>
+
+        <hr style="margin-top: 50px;">
+
+        <form class="review-submit-form" [formGroup]="reviewForm" *ngIf="currentFilm != null" (ngSubmit)="submitReview()">
+
+          <h2>Add your review:</h2>
+
+          <div class="review-submit-type">
+            <label class="submit-form-type-label" for="reviewType">Review type: </label>
+
+            <select class="submit-form-type-select" formControlName="type" required 
+              name="reviewType" id="reviewType">
+
+              <option *ngFor="let type of allReviewTypes" 
+                    value="{{ type.id }}">
+                {{ type.name }}
+              </option>
+
+            </select>
+          </div>
+
+          <label for="rreview-submit-text">Your opinion: </label>
+          <textarea class="review-submit-text" formControlName="text" required minlength="10">
+          </textarea>
+
+          <button class="submit-button" type="submit" (submit)="submitReview()">Submit</button>
+          
+        </form>
 
     </div>
 

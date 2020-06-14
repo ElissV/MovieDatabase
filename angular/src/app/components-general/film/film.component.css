@@ -147,3 +147,41 @@ select {
     width: 100%;
     display: block;
 }
+
+.review-submit-form {
+    max-width: 700px;
+    color: black;
+    margin-bottom: 200px;
+    margin-top: 50px;
+}
+
+.review-submit-type {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.review-submit-text {
+    width: 100%;
+    height: 200px;
+}
+
+.submit-button, .submit-form-type-select {
+    width: 100px;
+    background-color: cadetblue;
+    border: 5px solid transparent;
+    border-radius: 5px;
+}
+
+.submit-button {
+    margin-top: 20px;
+    border: 1px solid black;
+    height: 30px;
+}
+
+.submit-form-type-select {
+    margin-top: 5px;
+}
+
+.submit-form-type-label {
+    width: 100%;
+}
