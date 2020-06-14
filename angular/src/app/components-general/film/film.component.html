@@ -25,11 +25,27 @@
 
 
     <div class="comments-div">
+
         <hr style="margin-top: 50px;">
         <h1>Reviews ({{ currentFilm.filmReviews.length }})</h1>
 
+        <div class="filter">
+
+          <label for="reviewType">Filter by type:</label>
+
+          <select name="reviewType" id="reviewType" (change)="filterReviews($event.target.value)">
+            <option value="-1">
+              none
+            </option>
+            <option *ngFor="let type of allReviewTypes" value="{{ type.id }}">
+              {{ type.name }}
+            </option>
+          </select>
+
+        </div>
+
         <div class="comment" 
-          *ngFor="let review of currentFilm.filmReviews" 
+          *ngFor="let review of reviews" 
           [ngClass]="{'positive-comment': review.reviewType.name == 'positive',
           'negative-comment': review.reviewType.name == 'negative',
           'neutral-comment': review.reviewType.name == 'neutral'}"
@@ -52,13 +68,12 @@
             {{ review.text }}
           </div>
         </div>
-        <div *ngIf="currentFilm.filmReviews?.length == 0 || currentFilm.filmReviews == null" class="no-data-message">
+        <div class="no-data-message"
+              *ngIf="currentFilm.filmReviews?.length == 0 || currentFilm.filmReviews == null">
           No reviews yet.
         </div>
 
     </div>
-
-</div>
 
 <div class="alert alert-warning" *ngIf="currentFilm == null">
   Film data not found.

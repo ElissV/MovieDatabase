@@ -57,7 +57,7 @@
 h1 {
     font-weight: 300;
     margin-top: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 h1, .positive-comment, .negative-comment, .neutral-comment {
@@ -79,6 +79,7 @@ h1, .positive-comment, .negative-comment, .neutral-comment {
 .comments-div {
     margin-left: 100px;
     margin-bottom: 50px;
+    max-width: 700px;
 }
 
 .comment {
@@ -127,4 +128,22 @@ h1, .positive-comment, .negative-comment, .neutral-comment {
 .no-data-message {
     color: black;
 
+}
+
+label {
+    color: black;
+    margin-right: 10px;
+}
+
+select {
+    background-color: cadetblue;
+    border: 5px solid transparent;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.filter {
+    margin-bottom: 20px;
+    width: 100%;
+    display: block;
 }

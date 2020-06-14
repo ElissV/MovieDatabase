@@ -9,11 +9,11 @@ import java.util.Set;
 
 @Projection(types = Film.class, name = "filmProjection")
 public interface FilmProjection {
-    Long getFilmId();
+    Long getId();
     String getName();
     Integer getPublishingYear();
     String getDescription();
     String getImagePath();
     Set<Genre> getGenres();
-    Set<Review> getFilmReviews();
+    Set<ReviewProjection> getFilmReviews();
 }

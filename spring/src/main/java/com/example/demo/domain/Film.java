@@ -19,7 +19,7 @@ public class Film {
     @Id
     @Column(name = "film_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long filmId;
+    private Long id;
 
     private String name;
     private Integer publishingYear;

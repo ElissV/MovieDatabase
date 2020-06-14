@@ -17,11 +17,11 @@ public class Review {
     private Long reviewId;
 
     @ManyToOne
-    @JoinColumn(name = "filmId", nullable = false)
+    @JoinColumn(name = "film_id", nullable = false)
     private Film film;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "typeId", nullable = false)
+    @JoinColumn(name = "type_id", nullable = false)
     private ReviewType reviewType;
 
     @Temporal(TemporalType.DATE)

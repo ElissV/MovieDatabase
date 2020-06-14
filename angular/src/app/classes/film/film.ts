@@ -3,7 +3,7 @@ import { Review } from '../review/review';
 
 export class Film {
 
-    filmId: number;
+    id: number;
     name: string;
     publishingYear: number;
     description: string;
