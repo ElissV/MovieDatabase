@@ -18,9 +18,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './components-auth/registration/registration.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components-auth/login/login.component';
 import { UserProfileComponent } from './components-auth/user-profile/user-profile.component';
+
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { ReviewService } from './services/review.service';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { UserProfileComponent } from './components-auth/user-profile/user-profil
     MatSidenavModule,
     MatGridListModule,
     NgbModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

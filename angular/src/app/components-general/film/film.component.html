@@ -75,31 +75,41 @@
 
         <hr style="margin-top: 50px;">
 
-        <form class="review-submit-form" [formGroup]="reviewForm" *ngIf="currentFilm != null" (ngSubmit)="submitReview()">
+        <div *ngIf="currentFilm != null">
+          <form class="review-submit-form" [formGroup]="reviewForm" (ngSubmit)="sendReview()">
 
-          <h2>Add your review:</h2>
+            <h2>Add your review:</h2>
 
-          <div class="review-submit-type">
-            <label class="submit-form-type-label" for="reviewType">Review type: </label>
+            <div class="alert alert-warning" 
+              *ngIf="reviewSubmitMsg.length != 0">
+                {{ reviewSubmitMsg }}
+            </div>
 
-            <select class="submit-form-type-select" formControlName="type" required 
-              name="reviewType" id="reviewType">
+            <div class="review-submit-type">
+              <label class="submit-form-type-label" for="reviewType">Review type: </label>
 
-              <option *ngFor="let type of allReviewTypes" 
-                    value="{{ type.id }}">
-                {{ type.name }}
-              </option>
+              <select class="submit-form-type-select" formControlName="reviewTypeId" required
+                name="reviewType" id="reviewType" >
 
-            </select>
-          </div>
+                <option *ngFor="let type of allReviewTypes"
+                      value="{{ type.id }}">
+                  {{ type.name }}
+                </option>
 
-          <label for="rreview-submit-text">Your opinion: </label>
-          <textarea class="review-submit-text" formControlName="text" required minlength="10">
-          </textarea>
+              </select>
+            </div>
 
-          <button class="submit-button" type="submit" (submit)="submitReview()">Submit</button>
-          
-        </form>
+            <label for="review-submit-text">Your opinion: </label>
+            <textarea class="review-submit-text" formControlName="text" required minlength="10">
+            </textarea>
+
+            <button class="submit-button" type="submit" (submit)="sendReview()">Submit</button>
+            
+          </form>
+          <div>
+            {{reviewForm.value | json}}
+           </div>
+        </div>
 
     </div>
 

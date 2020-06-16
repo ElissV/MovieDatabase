@@ -6,7 +6,7 @@ import { GenreService } from 'src/app/services/genre.service';
 import { Review } from 'src/app/classes/review/review';
 import { ReviewService } from 'src/app/services/review.service';
 import { ReviewType } from 'src/app/classes/review-type/review-type';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-film',
@@ -20,14 +20,21 @@ export class FilmComponent implements OnInit {
   reviews: Review[];
   allReviewTypes: ReviewType[];
   dataLoaded: Promise<boolean>;
-  reviewForm: FormGroup;
-    
+  reviewSubmitMsg: string = '';
+
+  reviewForm: FormGroup = this.formBuilder.group({
+    film: this.filmId,
+    type: ['', [Validators.required]],
+    text: ['', [Validators.required, Validators.minLength(10)]]
+  });
+  
   constructor(private route: ActivatedRoute,
               private filmService: FilmService,
               private genreService: GenreService,
               private reviewService: ReviewService,
               private formBuilder: FormBuilder) { 
   }
+
 
   ngOnInit(): void {
     this.getFilmId();
@@ -73,19 +80,21 @@ export class FilmComponent implements OnInit {
         this.allReviewTypes = data;
       }
     );
+    console.log(this.allReviewTypes[0]);
   }
 
   initializeForm() {
     this.reviewForm = this.formBuilder.group({
-      type: ['', [Validators.required]],
+      filmId: this.filmId,
+      reviewTypeId: [null, [Validators.required]],
       text: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
   sendReview() {
-    const typeId = this.reviewForm.controls['type'].value;
-    const text = this.reviewForm.controls['text'].value;
-    this.reviewService.submitReview(typeId, text, this.filmId);
+    this.reviewSubmitMsg = this.reviewService.sendReviewForm(this.reviewForm);
+    console.log(this.reviewForm.value);
+    this.reviewForm.reset();
   }
 
 }

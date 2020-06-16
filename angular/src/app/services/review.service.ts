@@ -38,17 +38,15 @@ export class ReviewService {
     );
   }
 
-  submitReview(typeId:number, text: string, filmId: number) {
-    const review = this.getReviewObject(typeId, filmId);
-    const url = this.baseUrl + "/reviews";
-    this.http.put<Review>(url, review);
-    console.log("PUT");
-  }
-
-  getReviewObject(typeId: number, filmId: number): Review {
-    const type = this.getCertainType(typeId).subscribe();
+  sendReviewForm(form: FormGroup): string {
+    const url = "http://localhost:8080/api/submitReview";
     let review = new Review();
-    review.film = this.filmService.getFilm(filmId).subscribe();
+    
+    this.http.post<Object>(url, form.value).subscribe(
+      res => { },
+      err => { return "Couldn't send the review due to some error. Please try again later." }
+    );
+    return null;
   }
   
   getAllReviewTypes(): Observable<ReviewType[]> {
