@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavbarComponent } from './components-general/navbar/navbar.component';
-import { SidenavComponent } from './components-general/sidenav/sidenav.component';
+import { SidebarComponent } from './components-general/sidebar/sidebar.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistrationComponent } from './components-auth/registration/registration.component';
@@ -32,7 +32,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     FilmListComponent,
     FilmComponent,
     NavbarComponent,
-    SidenavComponent,
+    SidebarComponent,
     RegistrationComponent,
     LoginComponent,
     UserProfileComponent
