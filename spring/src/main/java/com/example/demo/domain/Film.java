@@ -1,6 +1,6 @@
 package com.example.demo.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -26,7 +26,6 @@ public class Film {
     private String description;
     private String imagePath;
 
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "film_genres",
             joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
@@ -35,7 +34,6 @@ public class Film {
 
 
     @OneToMany(mappedBy = "film", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnoreProperties("film")
     private Set<Review> filmReviews = new HashSet<>();
 
 
@@ -46,6 +44,27 @@ public class Film {
         this.name = name;
         this.genres = Stream.of(genres).collect(Collectors.toSet());
         this.genres.forEach(x -> x.getFilms().add(this));
+    }
+
+
+    @JsonIgnore
+    public Double getRating() {
+        int reviewsCount = filmReviews.size();
+        if (reviewsCount == 0)
+            return 0.0;
+
+        int positive = getPositiveReviewsQty(filmReviews);
+        return (double) ((positive * 100.0) / reviewsCount);
+    }
+
+    private int getPositiveReviewsQty(Set<Review> reviews) {
+        int positive = 0;
+        for (Review r : reviews) {
+            String reviewName = r.getReviewType().getName();
+            if (reviewName.equalsIgnoreCase("positive"))
+                positive++;
+        }
+        return positive;
     }
 
 }

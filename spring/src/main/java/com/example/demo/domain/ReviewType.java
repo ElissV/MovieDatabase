@@ -23,4 +23,6 @@ public class ReviewType {
     @OneToMany(mappedBy = "reviewType", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Review> reviews = new HashSet<>();
 
+
+
 }

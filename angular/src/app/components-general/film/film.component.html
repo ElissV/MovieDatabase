@@ -1,14 +1,18 @@
 
 
 
-<div class="main-div" *ngIf="currentFilm != null">
+<div class="main-div" *ngIf="currentFilm">
 
-    <img class="film-picture" src="assets/images/{{ currentFilm.imagePath }}">
+    <img class="film-picture" src="../assets/images/{{ currentFilm.imagePath }}">
 
     <div class="film-details">
 
       <div class="title">
         {{ currentFilm.name }} ({{ currentFilm.publishingYear }})
+      </div>
+
+      <div class="rating-div">
+        {{ currentFilm.rating | number : '1.2-2' }}%
       </div>
 
       <div class="genre-container">
@@ -33,7 +37,7 @@
 
           <label for="reviewType">Filter by type:</label>
 
-          <select name="reviewType" id="reviewType" (change)="filterReviews($event.target.value)">
+          <select name="reviewType" id="reviewType" [(ngModel)]="reviewTypeIdFilter" (change)="filterReviews($event.target.value)">
             <option value="-1">
               none
             </option>
@@ -67,10 +71,9 @@
             {{ review.text }}
           </div>
         </div>
-
         <div class="no-data-message"
-              *ngIf="currentFilm.filmReviews?.length == 0 || currentFilm.filmReviews == null">
-          No reviews yet.
+              *ngIf="reviews?.length == 0 || reviews == null">
+          No reviews found.
         </div>
 
         <hr style="margin-top: 50px;">
@@ -81,7 +84,7 @@
             <h2>Add your review:</h2>
 
             <div class="alert alert-warning" 
-              *ngIf="reviewSubmitMsg.length != 0">
+              *ngIf="reviewSubmitMsg != 'undefined' && reviewSubmitMsg.length">
                 {{ reviewSubmitMsg }}
             </div>
 
@@ -89,7 +92,7 @@
               <label class="submit-form-type-label" for="reviewType">Review type: </label>
 
               <select class="submit-form-type-select" formControlName="reviewTypeId" required
-                name="reviewType" id="reviewType" >
+                name="reviewType" id="reviewType" (change)="changeTypeId($event.target.value)">
 
                 <option *ngFor="let type of allReviewTypes"
                       value="{{ type.id }}">

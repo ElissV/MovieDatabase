@@ -13,4 +13,5 @@ import java.util.Set;
 @RepositoryRestResource(excerptProjection = ReviewProjection.class)
 public interface ReviewRepo extends JpaRepository<Review, Long> {
     Set<Review> findByFilmIdAndReviewTypeId(Long filmId, Long typeId);
+    Double countByReviewTypeId(Long typeId);
 }

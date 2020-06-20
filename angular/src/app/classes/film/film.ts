@@ -8,6 +8,7 @@ export class Film {
     publishingYear: number;
     description: string;
     genres: Genre[];
+    rating: number;
     filmReviews: Review[];
     imagePath: string;
 

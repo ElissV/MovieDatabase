@@ -6,6 +6,7 @@ import { ReviewType } from '../classes/review-type/review-type';
 import { map } from 'rxjs/operators';
 import { FormGroup } from '@angular/forms';
 import { FilmsWrapper, FilmService } from './film.service';
+import { FilmComponent } from '../components-general/film/film.component';
 
 @Injectable({
   providedIn: 'root'
@@ -38,15 +39,16 @@ export class ReviewService {
     );
   }
 
-  sendReviewForm(form: FormGroup): string {
-    const url = "http://localhost:8080/api/submitReview";
-    let review = new Review();
+  getReviews(film: number, type: number) {
+    if (type == -1) {
+      return this.getReviewsByFilmId(film);
+    } else {
+      return this.getReviewsByFilmAndTypeIds(film, type);
+    }
+  }
+
+  sendReviewForm(form: FormGroup) {
     
-    this.http.post<Object>(url, form.value).subscribe(
-      res => { },
-      err => { return "Couldn't send the review due to some error. Please try again later." }
-    );
-    return null;
   }
   
   getAllReviewTypes(): Observable<ReviewType[]> {

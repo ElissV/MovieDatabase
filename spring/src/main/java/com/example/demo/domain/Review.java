@@ -1,6 +1,5 @@
 package com.example.demo.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -28,5 +27,14 @@ public class Review {
     private Date date;
 
     private String text;
+
+
+    public Review() { }
+
+    public Review(Film film, ReviewType type, String text) {
+        this.film = film;
+        this.reviewType = type;
+        this.text = text;
+    }
 
 }

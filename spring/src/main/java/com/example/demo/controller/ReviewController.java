@@ -20,9 +20,7 @@ public class ReviewController {
 
     @PostMapping("/submitReview")
     public ReviewFormModel sendReview(@RequestBody ReviewFormModel model) {
-        System.out.println(model.getFilmId());
-        System.out.println(model.getReviewTypeId());
-        System.out.println(model.getText());
+        reviewService.saveNewReview(model);
         return model;
     }
 

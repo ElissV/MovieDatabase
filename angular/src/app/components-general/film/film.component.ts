@@ -7,6 +7,7 @@ import { Review } from 'src/app/classes/review/review';
 import { ReviewService } from 'src/app/services/review.service';
 import { ReviewType } from 'src/app/classes/review-type/review-type';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-film',
@@ -16,23 +17,25 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class FilmComponent implements OnInit {
 
   filmId: number;
-  currentFilm: Film = new Film;
+  currentFilm: Film = new Film();
   reviews: Review[];
   allReviewTypes: ReviewType[];
   dataLoaded: Promise<boolean>;
   reviewSubmitMsg: string = '';
+  reviewTypeIdFilter: number = -1;
 
   reviewForm: FormGroup = this.formBuilder.group({
-    film: this.filmId,
-    type: ['', [Validators.required]],
-    text: ['', [Validators.required, Validators.minLength(10)]]
+    film: [this.filmId, [Validators.required]],
+    type: ['',          [Validators.required]],
+    text: ['',          [Validators.required, Validators.minLength(10)]]
   });
   
   constructor(private route: ActivatedRoute,
               private filmService: FilmService,
               private genreService: GenreService,
               private reviewService: ReviewService,
-              private formBuilder: FormBuilder) { 
+              private formBuilder: FormBuilder,
+              private http: HttpClient) { 
   }
 
 
@@ -53,6 +56,7 @@ export class FilmComponent implements OnInit {
   }
 
   getCurrentFilm() {
+    this.currentFilm.filmReviews = [];
     this.filmService.getFilm(this.filmId).subscribe(
       data => {
         this.currentFilm = data;
@@ -80,21 +84,51 @@ export class FilmComponent implements OnInit {
         this.allReviewTypes = data;
       }
     );
-    console.log(this.allReviewTypes[0]);
   }
 
   initializeForm() {
     this.reviewForm = this.formBuilder.group({
-      filmId: this.filmId,
+      filmId: [null, [Validators.required]],
       reviewTypeId: [null, [Validators.required]],
       text: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
   sendReview() {
-    this.reviewSubmitMsg = this.reviewService.sendReviewForm(this.reviewForm);
-    console.log(this.reviewForm.value);
+    this.reviewForm.get('filmId').setValue(this.filmId);
+
+    const url = "http://localhost:8080/api/submitReview";
+    let review = new Review();
+    this.http.post<Object>(url, this.reviewForm.value).subscribe(
+      res => {  
+        if (res) {
+          this.updateReviews();
+        }
+      }
+    );
+
+    //let response = this.reviewService.sendReviewForm(this.reviewForm);
     this.reviewForm.reset();
+  }
+
+  updateReviews() {
+    let updatedReviews = [];
+
+    this.reviewService.getReviewsByFilmId(this.filmId)
+      .subscribe(
+        data => {
+          updatedReviews = data;
+          console.log(data);
+          this.reviews = data;
+          console.log(this.reviews);
+        }
+      );
+  }
+
+  changeTypeId(selectOptionValue) {
+    this.reviewForm.patchValue({
+      reviewTypeId: selectOptionValue
+    })
   }
 
 }
