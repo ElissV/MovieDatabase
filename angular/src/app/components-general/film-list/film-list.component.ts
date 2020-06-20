@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmService } from 'src/app/services/film.service';
 import { Film } from 'src/app/classes/film/film';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-film-list',
@@ -14,7 +14,8 @@ export class FilmListComponent implements OnInit {
   currentGenreId: number;
 
   constructor(private filmService: FilmService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getFilms();
@@ -22,14 +23,21 @@ export class FilmListComponent implements OnInit {
 
 
   getFilms() {
-    
+    const pathEnd = this.router.url.split("/").pop();
     const hasGenreId: boolean = this.route.snapshot.paramMap.has('id');
-    if (hasGenreId) {
-      this.getFilmsByGenre();
+    if (pathEnd == 'top') {
+      this.filmService.getTopTen().subscribe(
+        data => {
+          this.films = data;
+        }
+      );
     } else {
-      this.getAllFilms();
+      if (hasGenreId) {
+        this.getFilmsByGenre();
+      } else {
+        this.getAllFilms();
+      }
     }
-
   }
 
   getFilmsByGenre() {

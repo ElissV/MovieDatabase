@@ -2,12 +2,13 @@ package com.example.demo.repository;
 
 import com.example.demo.domain.Film;
 import com.example.demo.domain.projection.FilmProjection;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.awt.print.Pageable;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -17,5 +18,5 @@ import java.util.Set;
 public interface FilmRepo extends JpaRepository<Film, Long> {
     Optional<Film> findById(Long id);
 
-    Set<Film> OrderByRatingDesc();
+    List<Film> OrderByRatingDesc(Pageable pageable);
 }

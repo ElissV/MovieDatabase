@@ -34,6 +34,13 @@ export class FilmService {
     );
   }
 
+  getTopTen() {
+    const url = "http://localhost:8080/api/films/search/OrderByRatingDesc?size=10";
+    return this.http.get<FilmsWrapper>(url).pipe(
+      map(data => data._embedded.films)
+    );
+  }
+
 }
 
 export class FilmsWrapper {

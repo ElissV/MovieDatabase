@@ -11,28 +11,34 @@
         {{ currentFilm.name }} ({{ currentFilm.publishingYear }})
       </div>
 
-      <div class="rating-div">
-        {{ currentFilm.rating | number : '1.2-2' }}%
-
-        <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ currentFilm.rating }}"
-          *ngIf="currentFilm.rating <= 50" color="warn">
-        </mat-progress-bar>
-
-        <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ currentFilm.rating }}"
-          *ngIf="currentFilm.rating > 50" color="accent">
-        </mat-progress-bar>
-
-      </div>
-
       <div class="genre-container">
         <div class="genre" *ngFor="let genre of currentFilm.genres; let isLast=last">
           {{ genre.name }}
         </div>
       </div>
 
+      <div class="rating-div">
+        <div class="rating-percent">
+          Rating: {{ currentFilm.rating | number : '1.2-2' }}%
+        </div>
+      
+        <div class="progress-bar-div">
+          <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ currentFilm.rating }}"
+            *ngIf="currentFilm.rating <= 50" color="warn">
+          </mat-progress-bar>
+        
+          <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ currentFilm.rating }}"
+            *ngIf="currentFilm.rating > 50" color="accent">
+          </mat-progress-bar>
+        </div>
+      </div>
+
+
       <div class="description">
         {{ currentFilm.description }}
       </div>
+
+      
 
     </div>
 
