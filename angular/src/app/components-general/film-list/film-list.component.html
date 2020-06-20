@@ -1,7 +1,21 @@
 
+<div class="filters-div">
+    Rating: 
+    <select (change)="sortByRating($event)">
+        <option value="asc">
+            Ascending
+        </option>
+        <option value="desc">
+            Descending
+        </option>
+    </select>
+</div>
 
+<mat-grid-list cols="3" rowHeight="1:1"
+    [ngClass] = "{
+        'spaceForFilters': getPathEnd() != 'top'
+    }">
 
-<mat-grid-list cols="3" rowHeight="1:1">
 
     <mat-grid-tile *ngFor="let film of films">
 

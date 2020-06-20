@@ -23,9 +23,8 @@ export class FilmListComponent implements OnInit {
 
 
   getFilms() {
-    const pathEnd = this.router.url.split("/").pop();
     const hasGenreId: boolean = this.route.snapshot.paramMap.has('id');
-    if (pathEnd == 'top') {
+    if (this.getPathEnd() == 'top') {
       this.filmService.getTopTen().subscribe(
         data => {
           this.films = data;
@@ -55,6 +54,14 @@ export class FilmListComponent implements OnInit {
           this.films = data;
         }
       );
+  }
+
+  getPathEnd(): string {
+    return this.router.url.split("/").pop();
+  }
+
+  sortByRating(event) {
+
   }
 
 }
