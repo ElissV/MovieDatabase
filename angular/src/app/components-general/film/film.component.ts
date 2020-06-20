@@ -22,7 +22,7 @@ export class FilmComponent implements OnInit {
   allReviewTypes: ReviewType[];
   dataLoaded: Promise<boolean>;
   reviewSubmitMsg: string = '';
-  reviewTypeIdFilter: number = -1;
+  rating: number;
 
   reviewForm: FormGroup = this.formBuilder.group({
     film: [this.filmId, [Validators.required]],
@@ -106,8 +106,6 @@ export class FilmComponent implements OnInit {
         }
       }
     );
-
-    //let response = this.reviewService.sendReviewForm(this.reviewForm);
     this.reviewForm.reset();
   }
 
@@ -117,10 +115,8 @@ export class FilmComponent implements OnInit {
     this.reviewService.getReviewsByFilmId(this.filmId)
       .subscribe(
         data => {
-          updatedReviews = data;
-          console.log(data);
           this.reviews = data;
-          console.log(this.reviews);
+          this.getCurrentFilm();
         }
       );
   }

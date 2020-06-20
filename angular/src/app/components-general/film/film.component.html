@@ -13,6 +13,15 @@
 
       <div class="rating-div">
         {{ currentFilm.rating | number : '1.2-2' }}%
+
+        <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ currentFilm.rating }}"
+          *ngIf="currentFilm.rating <= 50" color="warn">
+        </mat-progress-bar>
+
+        <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ currentFilm.rating }}"
+          *ngIf="currentFilm.rating > 50" color="accent">
+        </mat-progress-bar>
+
       </div>
 
       <div class="genre-container">
@@ -37,7 +46,7 @@
 
           <label for="reviewType">Filter by type:</label>
 
-          <select name="reviewType" id="reviewType" [(ngModel)]="reviewTypeIdFilter" (change)="filterReviews($event.target.value)">
+          <select name="reviewType" id="reviewType" (change)="filterReviews($event.target.value)">
             <option value="-1">
               none
             </option>
