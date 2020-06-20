@@ -12,6 +12,13 @@
                     {{ film.name }}
                     ({{ film.publishingYear }})
                 </h3>
+                <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ film.rating }}"
+                    *ngIf="film.rating <= 50" color="warn">
+                </mat-progress-bar>
+                
+                <mat-progress-bar class="rating-progress-bar" mode="determinate" value="{{ film.rating }}"
+                    *ngIf="film.rating > 50" color="accent">
+                </mat-progress-bar>
             </a>
         </div>
 
