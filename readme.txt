@@ -1,14 +1,14 @@
 
 Film details page:
 
-![Film details page](/screens/sn.JPG?raw=true)
+![Film details page](https://github.com/ElissV/movie-database/blob/master/screens/sn.JPG?raw=true)
 
 
 Reviews section:
 
-![Reviews section](/screens/sn2.JPG?raw=true)
+![Reviews section](https://github.com/ElissV/movie-database/blob/master/screens/sn2.JPG?raw=true)
 
 
 Film list:
 
-![Alt text](/screens/sn3.JPG?raw=true)
+![Alt text](https://github.com/ElissV/movie-database/blob/master/screens/sn3.JPG?raw=true)
