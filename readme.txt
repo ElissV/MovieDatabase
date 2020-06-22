@@ -11,4 +11,6 @@ Reviews section:
 
 Film list:
 
-![Alt text](https://github.com/ElissV/movie-database/blob/master/screens/sn3.JPG)
+
+
+<img src="https://github.com/ElissV/movie-database/blob/master/screens/sn3.JPG">
