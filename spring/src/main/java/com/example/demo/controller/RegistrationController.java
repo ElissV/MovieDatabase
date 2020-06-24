@@ -13,13 +13,6 @@ public class RegistrationController {
     @Autowired
     private UserRepo userRepo;
 
-    @GetMapping("/sas")
-    public String smth() {
-        User u = new User();
-        userRepo.save(u);
-        return "DF";
-    }
-
     @PostMapping
     public void register(@RequestBody User user) {
         user.setRoles(null);

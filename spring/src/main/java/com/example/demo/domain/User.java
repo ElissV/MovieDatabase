@@ -23,7 +23,7 @@ import java.util.Set;
 /*@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "userId")*/
-public class User /*implements UserDetails*/{
+public class User implements UserDetails {
 
     @Id
     @Column(name = "user_id")
@@ -43,7 +43,7 @@ public class User /*implements UserDetails*/{
     private Set<Role> roles = new HashSet<>();
 
 
-    /*@Override
+    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getAuthorities();
     }
@@ -71,7 +71,7 @@ public class User /*implements UserDetails*/{
     @Override
     public boolean isEnabled() {
         return true;
-    }*/
+    }
 
     /*@JsonManagedReference
     public Set<Role> getRoles() {

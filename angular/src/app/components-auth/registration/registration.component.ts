@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/classes/user/user';
+import { Role } from 'src/app/classes/role/role';
 
 @Component({
   selector: 'app-registration',
@@ -43,7 +44,9 @@ export class RegistrationComponent implements OnInit {
       userId: 0,
       name: this.registerForm.controls['name'].value,
       email: this.registerForm.controls['email'].value,
-      password: this.registerForm.controls['password'].value
+      password: this.registerForm.controls['password'].value,
+      avatar: "gal.png",
+      roles: null
     };
     this.httpClient.post(url, user);
   }

@@ -62,7 +62,15 @@ export class FilmListComponent implements OnInit {
 
   sortByRating(value) {
     if (!this.currentGenreId) {
-      this.getAllFilms();
+      if (value == 'none') {
+        this.getAllFilms();
+      } else {
+        this.filmService.sortFilmsByRating(value).subscribe(
+          data => {
+            this.films = data;
+          }
+        );
+      }
     } else {
       this.filmService.getFilmsByGenreAndOrder(this.currentGenreId, value).subscribe(
         data => {

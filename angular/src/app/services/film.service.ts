@@ -42,17 +42,20 @@ export class FilmService {
   }
 
   getFilmsByGenreAndOrder(genreId: number, order: string): Observable<Film[]> {
-    if (order == 'asc') {
+    if (order == 'Asc') {
       return this.getFilmsByGenreAsc(genreId);
-    } else if (order == 'desc') {
+    } else if (order == 'Desc') {
       return this.getFilmsByGenreDesc(genreId);
     } else if (order == 'none') {
       return this.getFilmsByGenre(genreId);
     }
   }
 
-  private getFilmsAsc() {
-    
+  sortFilmsByRating(value: string): Observable<Film[]> {
+    const url = "http://localhost:8080/api/films/search/OrderByRating" + value;
+    return this.http.get<FilmsWrapper>(url).pipe(
+      map(data => data._embedded.films)
+    );
   }
 
   private getFilmsByGenreAsc(genreId: number): Observable<Film[]>  {

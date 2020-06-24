@@ -18,8 +18,11 @@
       </div>
 
       <div class="rating-div">
-        <div class="rating-percent">
+        <div class="rating-percent" *ngIf="currentFilm.rating">
           Rating: {{ currentFilm.rating | number : '1.2-2' }}%
+        </div>
+        <div class="rating-percent" *ngIf="!currentFilm.rating">
+          Rating: 0.00%
         </div>
       
         <div class="progress-bar-div">

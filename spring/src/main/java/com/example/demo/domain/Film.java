@@ -36,13 +36,14 @@ public class Film {
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "genre_id"))
     private Set<Genre> genres = new HashSet<>();
 
+
     @OneToMany(mappedBy = "film", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Review> filmReviews = new HashSet<>();
 
-    @NotNull
+
     @Formula(value = "((select count(*) from review where review.type_id = 1 and review.film_id = film_id) * 100)" +
                         "/ (select count(*) from review where review.film_id = film_id)")
-    private Double rating;
+    private Double rating = 0.00;
 
 
     public Film() {
@@ -54,30 +55,8 @@ public class Film {
         this.genres.forEach(x -> x.getFilms().add(this));
     }
 
-
-    /*@JsonIgnore
-    @PostLoad
-    public void rating() {
-        int reviewsCount = filmReviews.size();
-        if (reviewsCount == 0) {
-            rating = 0.0;
-            return;
-        }
-            //return 0.0;
-
-        int positive = getPositiveReviewsQty(filmReviews);
-        rating = (double) ((positive * 100.0) / reviewsCount);
-        //return (double) ((positive * 100.0) / reviewsCount);
-    }*/
-
-    private int getPositiveReviewsQty(Set<Review> reviews) {
-        int positive = 0;
-        for (Review r : reviews) {
-            String reviewName = r.getReviewType().getName();
-            if (reviewName.equalsIgnoreCase("positive"))
-                positive++;
-        }
-        return positive;
+    public boolean hasGreaterRating(Film f) {
+        return this.rating > f.rating;
     }
 
 }
