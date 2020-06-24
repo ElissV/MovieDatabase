@@ -1,4 +1,10 @@
 
+A movie database that can:
+  • show movies sorted by rating and genres
+  • show, sort and save reviews
+  • register users
+  
+
 Film details page:
 
 ![Film details page](https://github.com/ElissV/movie-database/blob/master/screens/sn.JPG)
@@ -10,7 +16,5 @@ Reviews section:
 
 
 Film list:
-
-
 
 <img src="https://github.com/ElissV/movie-database/blob/master/screens/sn3.JPG">
