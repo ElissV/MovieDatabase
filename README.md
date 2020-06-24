@@ -1,7 +1,7 @@
 
-A movie database that can:
-  • show movies sorted by rating and genres
-  • show, sort and save reviews
+A movie database that can:<br/>
+  • show movies sorted by rating and genres<br/>
+  • show, sort and save reviews<br/>
   • register users
   
 
