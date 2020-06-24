@@ -1,15 +1,23 @@
 
-<div class="filters-div">
-    Rating: 
-    <select (change)="sortByRating($event)">
-        <option value="asc">
-            Ascending
-        </option>
-        <option value="desc">
-            Descending
-        </option>
-    </select>
-</div>
+<mat-list  class="list-horizontal" 
+    *ngIf="getPathEnd() != 'top' ">
+
+    <mat-list-item>
+        Rating: 
+        <select (change)="sortByRating($event.target.value)">
+            <option value="none">
+                none
+            </option>
+            <option value="desc">
+                Best first
+            </option>
+            <option value="asc">
+                Worst first
+            </option>
+        </select> 
+    </mat-list-item>
+
+</mat-list>
 
 <mat-grid-list cols="3" rowHeight="1:1"
     [ngClass] = "{

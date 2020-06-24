@@ -18,6 +18,10 @@ import java.util.Set;
 @RepositoryRestResource(excerptProjection = FilmProjection.class)
 public interface FilmRepo extends JpaRepository<Film, Long> {
     Optional<Film> findById(Long id);
-
     List<Film> OrderByRatingDesc(Pageable pageable);
+    List<Film> OrderByRatingAsc(Pageable pageable);
+
+    Set<Film> findByGenres_genreId(Long id);
+    Set<Film> findByGenres_genreIdOrderByRatingDesc(Long id);
+    Set<Film> findByGenres_genreIdOrderByRatingAsc(Long id);
 }

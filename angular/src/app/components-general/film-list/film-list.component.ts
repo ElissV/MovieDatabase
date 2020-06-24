@@ -60,8 +60,16 @@ export class FilmListComponent implements OnInit {
     return this.router.url.split("/").pop();
   }
 
-  sortByRating(event) {
-
+  sortByRating(value) {
+    if (!this.currentGenreId) {
+      this.getAllFilms();
+    } else {
+      this.filmService.getFilmsByGenreAndOrder(this.currentGenreId, value).subscribe(
+        data => {
+          this.films = data;
+        }
+      );
+    }
   }
 
 }

@@ -36,10 +36,6 @@ public class Film {
             inverseJoinColumns = @JoinColumn(name = "genre_id", referencedColumnName = "genre_id"))
     private Set<Genre> genres = new HashSet<>();
 
-    /*@Query("select ((select count(*) from review where review.type_id = 1 and review.film_id = :id) * 100)" +
-            "/ (select count(*) from review where review.film_id = :id)")
-    private Double rating;*/
-
     @OneToMany(mappedBy = "film", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Review> filmReviews = new HashSet<>();
 

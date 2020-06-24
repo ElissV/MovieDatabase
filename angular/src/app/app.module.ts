@@ -23,7 +23,8 @@ import { UserProfileComponent } from './components-auth/user-profile/user-profil
 
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { ReviewService } from './services/review.service';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

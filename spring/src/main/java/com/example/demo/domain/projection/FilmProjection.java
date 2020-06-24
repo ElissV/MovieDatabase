@@ -15,8 +15,6 @@ public interface FilmProjection {
     String getDescription();
     String getImagePath();
     Set<Genre> getGenres();
-//    @Value("#{target.getRating()}")
-   // Double getRating();
     Double getRating();
     Set<ReviewProjection> getFilmReviews();
 }
