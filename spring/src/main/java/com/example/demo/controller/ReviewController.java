@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.Review;
-import com.example.demo.domain.ReviewFormModel;
+import com.example.demo.domain.forms.ReviewFormModel;
 import com.example.demo.service.ReviewSubmitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

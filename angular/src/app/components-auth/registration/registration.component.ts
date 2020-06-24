@@ -31,7 +31,6 @@ export class RegistrationComponent implements OnInit {
   submitData() {
     if (this.registerForm.valid) {
       this.send();
-      console.log("Form Submitted!");
       this.registerForm.reset();
     } else {
       console.log("Form not submitted");
@@ -39,16 +38,22 @@ export class RegistrationComponent implements OnInit {
   }
 
   send() {
-    let url = "http://localhost:8080/api/registration";
-    let user: User = {
-      userId: 0,
-      name: this.registerForm.controls['name'].value,
-      email: this.registerForm.controls['email'].value,
-      password: this.registerForm.controls['password'].value,
-      avatar: "gal.png",
-      roles: null
-    };
-    this.httpClient.post(url, user);
+    let url = "http://localhost:8080/registration";
+    // let user: User = {
+    //   userId: 0,
+    //   name: this.registerForm.controls['name'].value,
+    //   email: this.registerForm.controls['email'].value,
+    //   password: this.registerForm.controls['password'].value,
+    //   avatar: "gal.png",
+    //   roles: null
+    // };
+    this.httpClient.post(url, this.registerForm.value).subscribe(
+      res => {  
+        if (res) {
+          console.log("COOL");
+        }
+      }
+    );
   }
 
 }

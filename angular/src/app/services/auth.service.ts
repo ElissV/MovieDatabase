@@ -22,4 +22,8 @@ export class AuthService {
      return this.userLoggedIn;
   }
 
+  // public getUserRole(): Observable<Role> {
+  //   return this.http.get
+  // }
+
 }

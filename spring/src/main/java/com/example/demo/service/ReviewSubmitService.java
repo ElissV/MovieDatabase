@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Film;
 import com.example.demo.domain.Review;
-import com.example.demo.domain.ReviewFormModel;
+import com.example.demo.domain.forms.ReviewFormModel;
 import com.example.demo.domain.ReviewType;
 import com.example.demo.repository.FilmRepo;
 import com.example.demo.repository.ReviewRepo;

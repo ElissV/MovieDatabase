@@ -6,4 +6,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @CrossOrigin("http://localhost:4200")
 public interface RoleRepo extends JpaRepository<Role, Long> {
+
+    Role findRoleByName(String name);
+
 }

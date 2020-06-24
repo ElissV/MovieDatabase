@@ -38,9 +38,29 @@ public class User implements UserDetails {
     @JoinTable(name = "user_roles",
                 joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id"))
-    //@JsonManagedReference(value = "user-role")
-    //@JsonIgnore
     private Set<Role> roles = new HashSet<>();
+
+    private String avatar;
+
+
+    public User() {
+    }
+
+    public User(String name, String password, String email, Set<Role> roles, String avatar) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.roles = roles;
+        this.avatar = avatar;
+    }
+
+    public User(String name, String password, String email, Set<Role> roles) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.roles = roles;
+        this.avatar = "guy.png";
+    }
 
 
     @Override
@@ -73,8 +93,4 @@ public class User implements UserDetails {
         return true;
     }
 
-    /*@JsonManagedReference
-    public Set<Role> getRoles() {
-        return roles;
-    }*/
 }
